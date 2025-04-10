@@ -1,29 +1,19 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text, View, FlatList} from 'react-native';
 
 import EditScreenInfo from '@components/EditScreenInfo';
-import { Text, View } from '@components/Themed';
 
 import AlbumCoverItem from '@/components/AlbumCoverItem';
 
-export default function AlbumCover() {
+import albums from '../../../data/albums'
+
+
+// NEED TO ACCOUNT FOR UNEVEN NUMBER OF ALBUMS!!!!!
+export default function AlbumPage() {
   return (
-    <AlbumCoverItem />
+    <FlatList
+      data={albums}
+      renderItem={({item}) => <AlbumCoverItem album={item}/>}
+      numColumns={2}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
