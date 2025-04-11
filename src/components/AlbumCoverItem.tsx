@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import image from '@assets/images/headshot.jpg';
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import {Album} from '../types.js'
+import { Link } from 'expo-router';
 
 type AlbumCoverItemProps = {
     album: Album
@@ -10,23 +10,25 @@ type AlbumCoverItemProps = {
 // Component for album covers which will include an image, title, and last updated data field
 function AlbumCoverItem({album} : AlbumCoverItemProps) {
     return (
-        <View style={styles.container}>
-            <Image
-            style={styles.image}
-            source={{uri: album.image}} // add OR option which will display "No images"
-            />
-            <Text style={styles.title}>{album.title}</Text>
-            <Text style={styles.update}>Last updated: {album.lastUpdated}</Text>
-        </View>
+        <Link href={"/album"} asChild>
+            <Pressable style={styles.container}>
+                <Image
+                style={styles.image}
+                source={{uri: album.image}}
+                />
+                <Text style={styles.title}>{album.title}</Text>
+                <Text style={styles.update}>Last updated: {album.lastUpdated}</Text>
+            </Pressable>
+        </Link>
     );
 }
 
-// ADD STYLING IN CASE TITLE OVERFLOWS SO IT DOESN"T GO TO THE NEXT ALBUM AND JUST GOES UNDER
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 15,
-        borderRadius: 20
+        borderRadius: 20,
+        maxWidth: '50%'
     },
     title: {
         fontSize: 15,

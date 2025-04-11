@@ -1,6 +1,4 @@
-import { StyleSheet, Text, View, FlatList} from 'react-native';
-
-import EditScreenInfo from '@components/EditScreenInfo';
+import {FlatList} from 'react-native';
 
 import AlbumCoverItem from '@/components/AlbumCoverItem';
 
