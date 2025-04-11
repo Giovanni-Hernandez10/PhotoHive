@@ -26,11 +26,15 @@ export default function TabLayout() {
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
       }}>
+      
+      <Tabs.Screen name="index" options={{href:null}}/> {/* Removes the index from being an extra tab in the bottom of the app */}
+
       <Tabs.Screen
-        name="index"
+        name="album"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Albums',
+          headerShown: false, // hiding the header so it is not repeated in a nested navigation tab
+          tabBarIcon: ({ color }) => <TabBarIcon name="photo" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>

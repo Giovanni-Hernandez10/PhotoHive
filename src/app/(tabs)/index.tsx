@@ -1,17 +1,6 @@
-import {FlatList} from 'react-native';
+import { Redirect } from "expo-router";
 
-import AlbumCoverItem from '@/components/AlbumCoverItem';
-
-import albums from '../../../data/albums'
-
-
-// NEED TO ACCOUNT FOR UNEVEN NUMBER OF ALBUMS!!!!!
-export default function AlbumPage() {
-  return (
-    <FlatList
-      data={albums}
-      renderItem={({item}) => <AlbumCoverItem album={item}/>}
-      numColumns={2}
-    />
-  );
+// default file for the "tab" and redirecting the user to go the album page
+export default function TabIndex() {
+    return <Redirect href={'/album/'}/>
 }

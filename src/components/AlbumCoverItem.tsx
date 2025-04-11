@@ -10,7 +10,7 @@ type AlbumCoverItemProps = {
 // Component for album covers which will include an image, title, and last updated data field
 function AlbumCoverItem({album} : AlbumCoverItemProps) {
     return (
-        <Link href={"/album"} asChild>
+        <Link href={`/album/${album.title}`} asChild>
             <Pressable style={styles.container}>
                 <Image
                 style={styles.image}
