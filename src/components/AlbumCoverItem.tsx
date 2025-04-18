@@ -9,7 +9,7 @@ type ImageItemProps = {
 
 
 // Generic image component to be used in the album screen and photo screen to render images
-function AlbumCoverItem({item} : ImageItemProps) {
+function PictureCoverItem({item} : ImageItemProps) {
 
     // check to see if it is a photo or album item
     const isAlbum = item.type === 'album';
@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
 });
 
 
-export default AlbumCoverItem;
+export default PictureCoverItem;
 
 

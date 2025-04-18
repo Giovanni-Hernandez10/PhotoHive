@@ -1,6 +1,6 @@
 import {FlatList} from 'react-native';
 
-import AlbumCoverItem from '@/components/AlbumCoverItem';
+import PictureCoverItem from '@/components/AlbumCoverItem';
 
 import albums from '../../../../data/albums'
 import { Stack } from 'expo-router';
@@ -13,7 +13,7 @@ export default function AlbumPage() {
       <Stack.Screen options={{title: 'Albums'}}/> 
       <FlatList
         data={albums}
-        renderItem={({item}) => <AlbumCoverItem item={item}/>}
+        renderItem={({item}) => <PictureCoverItem item={item}/>}
         numColumns={2}
       />
     </>
