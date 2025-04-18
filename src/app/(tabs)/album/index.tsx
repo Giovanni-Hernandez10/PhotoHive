@@ -10,10 +10,10 @@ import { Stack } from 'expo-router';
 export default function AlbumPage() {
   return (
     <>
-      <Stack.Screen options={{title: 'Albums'}}/>
+      <Stack.Screen options={{title: 'Albums'}}/> 
       <FlatList
         data={albums}
-        renderItem={({item}) => <AlbumCoverItem album={item}/>}
+        renderItem={({item}) => <AlbumCoverItem item={item}/>}
         numColumns={2}
       />
     </>

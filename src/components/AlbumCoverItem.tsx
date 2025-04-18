@@ -1,23 +1,35 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import {Album} from '../types.js'
+import {Item} from '../types.js'
 import { Link } from 'expo-router';
 
-type AlbumCoverItemProps = {
-    album: Album
-};
+type ImageItemProps = {
+    item: Item
+}
 
-// Component for album covers which will include an image, title, and last updated data field
-function AlbumCoverItem({album} : AlbumCoverItemProps) {
+
+// Generic image component to be used in the album screen and photo screen to render images
+function AlbumCoverItem({item} : ImageItemProps) {
+
+    // check to see if it is a photo or album item
+    const isAlbum = item.type === 'album';
+
+    // change the else link to the photo screen when it is made
+    const href = isAlbum ? `/album/${item.id}` : `/album/${item.id}`;
+
     return (
-        <Link href={`/album/${album.title}`} asChild>
+        <Link href={href} asChild>
             <Pressable style={styles.container}>
                 <Image
                 style={styles.image}
-                source={{uri: album.image}}
+                source={{uri: item.image}}
                 />
-                <Text style={styles.title}>{album.title}</Text>
-                <Text style={styles.update}>Last updated: {album.lastUpdated}</Text>
+                {isAlbum && (
+                    <>
+                    <Text style={styles.title}>{item.title}</Text>
+                    <Text style={styles.update}>Last updated: {item.lastUpdated}</Text>
+                    </>
+                )}
             </Pressable>
         </Link>
     );
