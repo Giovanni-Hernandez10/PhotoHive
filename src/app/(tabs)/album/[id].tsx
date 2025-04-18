@@ -1,8 +1,9 @@
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import React from 'react';
 import { Stack, useLocalSearchParams } from "expo-router";
 import albums from '../../../../data/albums';
 import pictures from '../../../../data/pictures';
+import PictureCoverItem from '@/components/PictureCoverItem';
 
 // dynamic route to display the album the user selected from the albums page
 
@@ -24,12 +25,21 @@ const AlbumScreen = () => {
 
     
 
-    // Name of the page will now be at the top set to the title of the album w/ options={}
+    // Displays all of the pictures for a given album in three columns
     return (
-        <View>
-            <Stack.Screen options={{title: album.title}}/>
-            <Text>This is the photos page for that album</Text>
-        </View>
+        // NEED TO FIX THE STYLING OF THIS COMPONENT -> PICTURES DON'T LOOK GOOD
+        <>
+        <Stack.Screen options={{title: album.title}}/>
+        <FlatList
+            data={photos}
+            renderItem={({item}) => <PictureCoverItem item={item}/>}
+            numColumns={3}
+        />
+        </>
+        // <View>
+        //     <Stack.Screen options={{title: album.title}}/>
+        //     <Text>This is the photos page for that album</Text>
+        // </View>
     );
 }
 

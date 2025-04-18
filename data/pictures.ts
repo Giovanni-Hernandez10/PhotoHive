@@ -1,4 +1,6 @@
-const pictures = [
+import { PhotoItem } from "@/types";
+
+const pictures: PhotoItem[] = [
     {albumId: 1, id: 1, image: 'https://fivethirtyeight.com/wp-content/uploads/2022/11/GettyImages-1442587075-e1668806020544.jpg?w=917', uploadedAt: '2023-04-10', type: 'photo'},
     {albumId: 1, id: 2, image: 'https://fivethirtyeight.com/wp-content/uploads/2022/11/GettyImages-1442587075-e1668806020544.jpg?w=917', uploadedAt: '2023-04-10', type: 'photo'},
     {albumId: 1, id: 3, image: 'https://fivethirtyeight.com/wp-content/uploads/2022/11/GettyImages-1442587075-e1668806020544.jpg?w=917', uploadedAt: '2023-04-10', type: 'photo'},

@@ -1,6 +1,6 @@
 import {FlatList} from 'react-native';
 
-import PictureCoverItem from '@/components/AlbumCoverItem';
+import PictureCoverItem from '@/components/PictureCoverItem';
 
 import albums from '../../../../data/albums'
 import { Stack } from 'expo-router';

@@ -19,9 +19,9 @@ function PictureCoverItem({item} : ImageItemProps) {
 
     return (
         <Link href={href} asChild>
-            <Pressable style={styles.container}>
+            <Pressable style={isAlbum ? styles.albumContainer : styles.pictureContainer}>
                 <Image
-                style={styles.image}
+                style={isAlbum ? styles.albumImage : styles.pictureImage}
                 source={{uri: item.image}}
                 />
                 {isAlbum && (
@@ -36,11 +36,17 @@ function PictureCoverItem({item} : ImageItemProps) {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    albumContainer: {
         flex: 1,
         padding: 15,
         borderRadius: 20,
         maxWidth: '50%'
+    },
+    pictureContainer: {
+        flex: 1,
+        padding: 3,
+        borderRadius: 20,
+        maxWidth: '33%' 
     },
     title: {
         fontSize: 15,
@@ -49,10 +55,14 @@ const styles = StyleSheet.create({
     update: {
         fontSize: 10
     },
-    image: {
+    albumImage: {
         width: '100%',
         aspectRatio: 1,
         borderRadius: 20
+    },
+    pictureImage : {
+        width: '100%',
+        aspectRatio: 1,
     }
     
 });
